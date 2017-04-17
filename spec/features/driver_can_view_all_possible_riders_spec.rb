@@ -12,8 +12,12 @@ RSpec.feature "driver can view all possible riders" do
 
     visit riders_path
 
-    expect(page).to have_content { rider1.name, rider2.name, rider3.name }
-    expect(page).to not_have_content { rider4.name, rider5.name, rider6.name }
+    expect(page).to have_content rider1.name
+    expect(page).to have_content rider2.name
+    expect(page).to have_content rider3.name
+    expect(page).to not_have_content rider4.name
+    expect(page).to not_have_content rider5.name
+    expect(page).to not_have_content rider6.name
 
 end
 end
