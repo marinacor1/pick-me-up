@@ -12,8 +12,12 @@ RSpec.feature "rider can view all possible drivers" do
 
     visit drivers_path
 
-    expect(page).to have_content { driver1.name, driver2.name, driver3.name }
-    expect(page).to not_have_content { driver4.name, driver5.name, driver6.name }
+    expect(page).to have_content(driver1.name)
+    expect(page).to have_content driver2.name
+    expect(page).to have_content driver3.name
+    expect(page).to not_have_content driver4.name
+    expect(page).to not_have_content driver5.name
+    expect(page).to not_have_content driver6.name
 
 end
 end
