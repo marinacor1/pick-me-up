@@ -7,6 +7,10 @@ RSpec.feature "driver fills out information and sees riders" do
     visit root_path
 
     click_on "Driver"
+    select "Enter"
+
+    expect(path).to eq(new_driver_path)
+
     fill_in "From", with: "Denver, CO"
     fill_in "Heading to", with: "Vail, CO"
     fill_in "Date", with: "June 6, 2017"
