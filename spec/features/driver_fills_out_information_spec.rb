@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "driver fills out information and sees riders" do
   scenario "entry form for driver" do
+    user = create(:user)
     rider = create(:rider, initial_location: "Denver, CO", destination: "Vail, CO", date: "June 6, 2017", time: "Morning")
 
     visit root_path
