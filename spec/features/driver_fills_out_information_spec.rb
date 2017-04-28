@@ -20,11 +20,11 @@ RSpec.feature "driver fills out information and sees riders" do
     click_on "Submit"
 
     expect(current_path).to eq(riders_path)
-    save_and_open_page
 
-    expect(page).to have_content Driver.last.name
-    expect(page).to have_content Driver.last.email
     expect(page).to have_content Driver.last.initial_location
+    expect(page).to have_content Driver.last.destination
+    expect(page).to have_content Driver.last.time
+
     expect(page).to have_content "Riders"
     expect(page).to have_content rider.name
   end
