@@ -1,0 +1,17 @@
+<h1> Sign Up To Be a Driver Today!</h1>
+
+<%= form_for @driver do |f| %>
+  <p><%= f.label :name %>
+  <%= f.text_field :name %></p>
+  <p><%= f.label :email %>
+  <%= f.text_field :email %></p>
+  <p><%= f.label "Initial location" %>
+  <%= f.text_field :initial_location %></p>
+  <p><%= f.label :destination %>
+  <%= f.text_field :destination %></p>
+  <p><%= f.label "Parting Date" %>
+  <%= f.text_field :date %></p>
+  <p><%= f.label "Leaving around when?" %>
+  <%= f.text_field :time %></p>
+  <%= f.submit "Submit" %>
+<% end %>

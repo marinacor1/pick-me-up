@@ -1,5 +1,6 @@
 .onoffswitch {
-    position: relative; width: 120px;
+    position: relative; width: 250px;
+    margin-top: 200px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -21,19 +22,19 @@
 .onoffswitch-inner:before {
     content: "DRIVER";
     padding-left: 10px;
-    background-color: #34A7C1; color: #FFFFFF;
+    background-color: #1d6daa; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "RIDER";
     padding-right: 10px;
-    background-color: yellow; color: #999999;
-    text-align: right;
+    background-color: #ad3722; color: #999999;
+    text-align: center;
 }
 .onoffswitch-switch {
     display: block; width: 18px; margin: 6px;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    right: 83px;
+    right: 3px;
     border: 2px solid #999999; border-radius: 20px;
     transition: all 0.3s ease-in 0s;
 }
