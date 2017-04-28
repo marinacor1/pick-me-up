@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428192644) do
+ActiveRecord::Schema.define(version: 20170428202211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,10 @@ ActiveRecord::Schema.define(version: 20170428192644) do
     t.string   "time"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "user_id"
   end
+
+  add_index "drivers", ["user_id"], name: "index_drivers_on_user_id", using: :btree
 
   create_table "riders", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +47,11 @@ ActiveRecord::Schema.define(version: 20170428192644) do
     t.string   "password_confirmation"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "driver_id"
   end
 
+  add_index "users", ["driver_id"], name: "index_users_on_driver_id", using: :btree
+
+  add_foreign_key "drivers", "users"
+  add_foreign_key "users", "drivers"
 end
