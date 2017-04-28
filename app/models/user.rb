@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   has_one :driver
   has_one :rider
+
+  #TODO how to create a user and driver relation?
+  #when user logs in they determine if they are driver or rider
+  #fill out form for one (driver)
+  #driver id is added to user
 end

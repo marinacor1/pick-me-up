@@ -1,7 +1,7 @@
 class RidersController < ApplicationController
 
   def index
-    binding.pry
-    @riders = current_user.driver.riders
+    @driver = current_user.driver
+    @riders = Rider.all.where(initial_location: @driver.initial_location, destination: @driver.destination)
   end
 end

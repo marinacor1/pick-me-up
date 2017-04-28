@@ -6,6 +6,10 @@ class DriversController < ApplicationController
   def create
     @driver = Driver.create(driver_params)
     if @driver.save
+      current_user.driver = @driver
+      current_user.save
+      @driver.user = current_user
+      @driver.save
       redirect_to riders_path
     else
       render :new
