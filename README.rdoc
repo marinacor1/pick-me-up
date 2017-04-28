@@ -1,1 +1,5 @@
 Application that allows drivers and riders to connect.
+
+A driver and/or rider creates an account and is matched with drivers or riders that have the same initial location and destination.
+
+Check out the feature tests under `spec/features` to see more scenarios for users.
