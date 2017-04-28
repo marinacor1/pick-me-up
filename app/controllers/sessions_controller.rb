@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  # before_action :require_login!, only: [:destroy]
 
   def new
   end
@@ -8,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(current_user)
+      redirect_to root_path
     else
       # flash.now[:error] = @user.errors.full_messages.join(", ")
       redirect_to login_path
