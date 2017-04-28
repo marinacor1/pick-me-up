@@ -11,6 +11,7 @@ RSpec.feature "driver fills out information and sees riders" do
     click_on "Enter"
 
     expect(current_path).to eq(new_driver_path)
+    
     fill_in "Name", with: rider.name
     fill_in "Email", with: rider.email
     fill_in "driver_initial_location", with: "Denver, CO"
