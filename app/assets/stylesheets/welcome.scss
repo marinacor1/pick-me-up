@@ -44,3 +44,32 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px;
 }
+
+.select-button {
+    border: 1px solid #000;
+    font-family: arial, sans-serif;
+    font-size: 110%;
+    margin: 20px;
+    padding: 5px;
+    background-color: #c63b03;
+    border-radius: 10px;
+    text-align: center;
+    width: 6%;
+}
+
+a:active{
+    text-decoration: none;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:disabled {
+    text-decoration:none;
+}
+
+a:enabled{
+    text-decoration: none;
+    color: #000;
+}

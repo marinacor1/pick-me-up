@@ -8,6 +8,16 @@
   </div>
 </center>
 
-<div class="select-button">
-  <%= link_to "Enter", new_driver_path %>
-</div>
+<center>
+  <div class="select-button">
+    <%= link_to "Enter", new_driver_path %>
+  </div>
+</center>
+
+<script>
+var userStatus = "Driver";
+ .onoffswitch.onClick(){
+   var userStatus = "Rider";
+ }
+
+</script>
