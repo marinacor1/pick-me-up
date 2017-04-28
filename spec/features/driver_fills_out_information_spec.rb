@@ -5,7 +5,7 @@ RSpec.feature "driver fills out information and sees riders" do
     rider = create(:rider, initial_location: "Denver, CO", destination: "Vail, CO", date: "June 6, 2017", time: "Morning")
 
     visit root_path
-
+save_and_open_page
     click_on "Driver"
     select "Enter"
 
