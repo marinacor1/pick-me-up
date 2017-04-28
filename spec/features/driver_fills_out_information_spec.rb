@@ -7,11 +7,10 @@ RSpec.feature "driver fills out information and sees riders" do
     rider = create(:rider, initial_location: "Denver, CO", destination: "Vail, CO", date: "June 6, 2017", time: "Morning")
 
     login_setup
-    check "onoffswitch"
     click_on "Enter"
 
     expect(current_path).to eq(new_driver_path)
-    
+
     fill_in "Name", with: rider.name
     fill_in "Email", with: rider.email
     fill_in "driver_initial_location", with: "Denver, CO"
