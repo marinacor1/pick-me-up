@@ -16,15 +16,8 @@ RSpec.feature "driver can view all possible riders" do
 
     visit new_driver_path
 
-    fill_in "Name", with: driver.name
-    fill_in "Email", with: driver.email
-    fill_in "driver_initial_location", with:  driver.initial_location
-    fill_in "Destination", with: driver.destination
-    fill_in "driver_date", with: driver.date
-    fill_in "driver_time", with: driver.time
-    click_on "Submit"
+    driver_form(driver)
 
-save_and_open_page
     expect(page).to have_content rider1.name
     expect(page).to have_content rider2.name
     expect(page).to have_content rider3.name

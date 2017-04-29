@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428202211) do
+ActiveRecord::Schema.define(version: 20170429004843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 20170428202211) do
     t.string   "destination"
     t.date     "date"
     t.string   "time"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "user_id"
+    t.boolean  "selected",         default: false
   end
 
   add_index "drivers", ["user_id"], name: "index_drivers_on_user_id", using: :btree

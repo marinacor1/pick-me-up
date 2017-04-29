@@ -1,4 +1,6 @@
 <h2>Riders who need to get to: <%= @driver.destination %> from: <%= @driver.initial_location %> on <%= @driver.date.strftime("%m %d, %Y") %> in the <%= @driver.time %></h2>
 <% @riders.each do |rider| %>
-<p> <%= rider.name %> <%= rider.email %> </p>
+  <%= form_for Rider.new  do |f| %>
+    <p> <%=f.check_box :selected, rider.name %> <%= rider.email %> </p>
+  <% end %>
 <% end %>
