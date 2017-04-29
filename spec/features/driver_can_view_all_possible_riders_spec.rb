@@ -1,23 +1,36 @@
 require 'rails_helper'
 
 RSpec.feature "driver can view all possible riders" do
+  include FeaturesHelper
   scenario "riders index" do
+    user = create(:user)
     driver = create(:driver, initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Afternoon")
     rider1 = create(:rider, initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Afternoon")
-    rider2 = create(:rider, initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Afternoon")
-    rider3 = create(:rider, initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Afternoon")
-    rider4 = create(:rider, initial_location: "Littleton, CO", destination: "Pueblo, CO", date: "June 9, 2017", time: "Afternoon")
-    rider5 = create(:rider, initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 10, 2017", time: "Afternoon")
-    rider6 = create(:rider, initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Morning")
+    rider2 = create(:rider, name: "Sam Jones", initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Afternoon")
+    rider3 = create(:rider, name: "Wilimina Marquez", initial_location: "Littleton, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Afternoon")
+    rider4 = create(:rider, name: "Mike Zanza", initial_location: "Colorado Springs, CO", destination: "Pueblo, CO", date: "June 9, 2017", time: "Afternoon")
+    rider5 = create(:rider, name: "Lorenzo Valverde", initial_location: "Littleton, CO", destination: "Telluride, CO", date: "June 10, 2017", time: "Afternoon")
+    rider6 = create(:rider, name: "Rita Hayworth", initial_location: "Vail, CO", destination: "Avon, CO", date: "June 9, 2017", time: "Morning")
 
-    visit riders_path
+    login_setup
 
+    visit new_driver_path
+
+    fill_in "Name", with: driver.name
+    fill_in "Email", with: driver.email
+    fill_in "driver_initial_location", with:  driver.initial_location
+    fill_in "Destination", with: driver.destination
+    fill_in "driver_date", with: driver.date
+    fill_in "driver_time", with: driver.time
+    click_on "Submit"
+
+save_and_open_page
     expect(page).to have_content rider1.name
     expect(page).to have_content rider2.name
     expect(page).to have_content rider3.name
-    expect(page).to not_have_content rider4.name
-    expect(page).to not_have_content rider5.name
-    expect(page).to not_have_content rider6.name
+    expect(page).to_not have_content rider4.name
+    expect(page).to_not have_content rider5.name
+    expect(page).to_not have_content rider6.name
 
 end
 end
